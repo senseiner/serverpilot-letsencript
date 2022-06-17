@@ -202,9 +202,9 @@ echo "server {" | sudo tee $configfile
 echo "   listen 443 ssl http2;" | sudo tee -a $configfile 
 echo "   listen [::]:443 ssl http2;" | sudo tee -a $configfile 
 echo "   server_name " | sudo tee -a $configfile 
-   for domain in $domains; do
-      echo -n $domain" " | sudo tee -a $configfile
-   done
+     for domain in $domains; do
+        echo -n $domain" " | sudo tee -a $configfile
+     done
 echo ";" | sudo tee -a $configfile 
 echo "" | sudo tee -a $configfile 
 echo "" | sudo tee -a $configfile 
@@ -228,7 +228,8 @@ echo "    ssl_stapling on;" | sudo tee -a $configfile
 echo "    ssl_stapling_verify on;" | sudo tee -a $configfile 
 echo "" | sudo tee -a $configfile 
 echo "    # verify chain of trust of OCSP response" | sudo tee -a $configfile 
-echo "    ssl_trusted_certificate /etc/letsencrypt/live/${APPDOMAINS[0]}/chain.pem;" | sudo tee -a $configfile 
+echo "    ssl_trusted_certificate /etc/letsencrypt/live/${APPDOMAINS[0]}/chain.pem;" | sudo tee -a $configfile
+echo "" | sudo tee -a $configfile
 echo "    #root directory and logfiles" | sudo tee -a $configfile 
 echo "    root /srv/users/$username/apps/$appname/public;" | sudo tee -a $configfile 
 echo "" | sudo tee -a $configfile 
