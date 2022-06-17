@@ -230,6 +230,7 @@ echo "" | sudo tee -a $configfile
 echo "    # verify chain of trust of OCSP response" | sudo tee -a $configfile 
 echo "    ssl_trusted_certificate /etc/letsencrypt/live/${APPDOMAINS[0]}/chain.pem;" | sudo tee -a $configfile
 echo "" | sudo tee -a $configfile
+echo "" | sudo tee -a $configfile 
 echo "    #root directory and logfiles" | sudo tee -a $configfile 
 echo "    root /srv/users/$username/apps/$appname/public;" | sudo tee -a $configfile 
 echo "" | sudo tee -a $configfile 
