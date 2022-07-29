@@ -28,13 +28,11 @@ This script updates/create script in the `/etc/nginx-sp` that requires root acce
 Restart nginx
 `sudo service nginx-sp restart`
 
+Check that the nginx config is correct
+`sudo nginx-sp -t`
+
 ## Schedule auto renewal
 Add the following to your crontab (`crontab -e`)
-
-**For Ubuntu 14.04**  
-```
-0 */12 * * * /usr/local/bin/certbot-auto renew --quiet --no-self-upgrade --post-hook "service nginx-sp reload"
-```
 
 **For Ubuntu 16.04**  
 ```
@@ -46,6 +44,10 @@ Add the following to your crontab (`crontab -e`)
 0 */12 * * * letsencrypt renew && service nginx-sp reload
 ```
 
+**For Ubuntu 20.04**  
+```
+0 */12 * * * letsencrypt renew && service nginx-sp reload
+```
 ## Notes
 - This script assumes that you did not change your default ServerPilot installation folder
 - When entering your domain names, please list the primary root domain name first
